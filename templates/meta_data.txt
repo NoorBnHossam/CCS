@@ -1,0 +1,12 @@
+Gaussian Model:
+    The label for the sample with Feature1 = 6.0 and Feature2 = 3.3 is Versicolor
+    (based on the example data).
+
+Linear Regression:
+Hours_Studied : 1,2,3,4,5,6,7,8
+Test_Score : 55,60,65,70,75,80,85,90
+
+    The predicted test score for a student who studied for 3.5 hours is 67.5.
+
+Text Classification (Naive Bayes):
+    The label for the text "Free iPhone offer!" is Spam.
