@@ -55,17 +55,17 @@ def classify():
         le = LabelEncoder()
         df[class_column] = le.fit_transform(df[class_column])
 
-        feature_columns = [col for col in df.columns if col != class_column][:2]
+        feature_columns = [col for col in df.columns if col != class_column]
         X = df[feature_columns]
         y = df[class_column]
 
         try:
-            input_data = {k: float(v) for k, v in list(input_data.items())[:2]}
+            input_data = {k: float(v) for k, v in input_data.items()}
         except ValueError as e:
             return jsonify({'error': f'Invalid numeric value in input data: {str(e)}'})
 
-        if len(input_data) != len(feature_columns):
-            return jsonify({'error': f'Expected {len(feature_columns)} features, but got {len(input_data)} features'})
+        if len(input_data) < 2:
+            return jsonify({'error': 'Expected at least 2 features, but got fewer'}), 400
 
         model = GaussianNB()
         model.fit(X, y)

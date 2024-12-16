@@ -22,10 +22,8 @@ export const PredictionForm: React.FC<PredictionFormProps> = ({
       setError(null);
 
       const numericValues: PredictionInput = {};
-      // Only use the first two features for prediction
-      const predictionFeatures = features.slice(0, 2);
 
-      for (const key of predictionFeatures) {
+      for (const key of features) {
         const value = values[key].trim();
         if (!value.match(/^-?\d*\.?\d+$/)) {
           setError(
@@ -53,7 +51,7 @@ export const PredictionForm: React.FC<PredictionFormProps> = ({
         </div>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {features.slice(0, 2).map((feature) => (
+        {features.map((feature) => (
           <FeatureInput
             key={feature}
             feature={feature}
